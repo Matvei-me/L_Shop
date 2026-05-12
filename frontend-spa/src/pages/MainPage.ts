@@ -1,6 +1,7 @@
 import { getProducts } from "../api";
 import { setProductsCache } from "../state";
 import { renderProductCard } from "../components/ProductCard";
+import { escapeAttr } from "../utils/html";
 
 export async function renderMainPage(container: HTMLElement): Promise<void> {
   const search = new URLSearchParams(window.location.hash.slice(1).split("?")[1] || "").get("search") ?? "";
@@ -36,7 +37,7 @@ export async function renderMainPage(container: HTMLElement): Promise<void> {
           <option value="true" ${available === "true" ? "selected" : ""}>Да</option>
           <option value="false" ${available === "false" ? "selected" : ""}>Нет</option>
         </select></label>
-        <button type="button" id="apply-filters">Показать</button>
+        <button type="button" class="btn btn--primary" id="apply-filters">Показать</button>
       </aside>
       <section class="product-list">
         <h2>Товары</h2>
@@ -49,12 +50,6 @@ export async function renderMainPage(container: HTMLElement): Promise<void> {
 
   bindFilters(container);
   bindAddToCart(container);
-}
-
-function escapeAttr(s: string): string {
-  const div = document.createElement("div");
-  div.textContent = s;
-  return div.innerHTML;
 }
 
 function bindFilters(container: HTMLElement): void {

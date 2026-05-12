@@ -14,7 +14,6 @@ export async function getProfile(req: AuthRequest, res: Response, next: NextFunc
       return res.status(404).json({ message: "User not found" });
     }
 
-    // в ответе без пароля
     res.json({
       success: true,
       data: {

@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import * as authService from "../services/auth.service";
 import tokenService from "../services/token.service";
 
-// по тз: кука 10 мин, HttpOnly (в document.cookies не видна)
 const COOKIE_NAME = "sessionToken";
 const COOKIE_OPTIONS = {
   httpOnly: true,

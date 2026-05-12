@@ -7,11 +7,13 @@ import { RegisterDto, LoginDto } from "../types/auth.types";
 
 const usersPath = path.resolve(__dirname, "../data/users.json");
 
+/** @returns список пользователей из `users.json` */
 async function readUsers(): Promise<User[]> {
   const data = await fs.readFile(usersPath, "utf-8");
   return JSON.parse(data) as User[];
 }
 
+/** @param users полный массив для записи в файл */
 async function writeUsers(users: User[]): Promise<void> {
   await fs.writeFile(usersPath, JSON.stringify(users, null, 2));
 }

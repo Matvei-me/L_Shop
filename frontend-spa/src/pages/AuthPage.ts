@@ -14,7 +14,7 @@ export function renderAuthPage(container: HTMLElement) {
           <label>Логин <input type="text" name="login" /></label>
           <label>Телефон <input type="text" name="phone" /></label>
           <label>Пароль <input type="password" name="password" /></label>
-          <button type="button" id="btn-register">Зарегистрироваться</button>
+          <button type="button" class="btn btn--primary" id="btn-register">Зарегистрироваться</button>
         </fieldset>
       </form>
       <form id="login-form">
@@ -22,7 +22,7 @@ export function renderAuthPage(container: HTMLElement) {
           <legend>Вход</legend>
           <label>Email <input type="text" name="email" id="login-email" /></label>
           <label>Пароль <input type="password" name="password" id="login-password" /></label>
-          <button type="button" id="btn-login">Войти</button>
+          <button type="button" class="btn btn--primary" id="btn-login">Войти</button>
         </fieldset>
       </form>
       <div id="auth-message"></div>

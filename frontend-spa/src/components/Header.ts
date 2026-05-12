@@ -11,7 +11,7 @@ export function renderHeader(): string {
         ${user ? `
           <a href="#/cart" data-link="cart">Корзина</a>
           <a href="#/delivery" data-link="delivery">Доставка</a>
-          <button type="button" id="btn-logout">Выйти</button>
+          <button type="button" class="btn btn--danger btn--small" id="btn-logout">Выйти</button>
         ` : `
           <a href="#/auth" data-link="auth">Вход / Регистрация</a>
         `}
