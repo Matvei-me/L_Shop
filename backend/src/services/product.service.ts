@@ -4,11 +4,18 @@ import { Product } from "../models/product.model";
 
 const productsPath = path.resolve(__dirname, "../data/products.json");
 
+/**
+ * грузим каталог из json
+ * @returns {Promise<Product[]>}
+ */
 async function readProducts(): Promise<Product[]> {
   const data = await fs.readFile(productsPath, "utf-8");
   return JSON.parse(data);
 }
 
+/**
+ * фильтры и сортировка через query-параметры
+ */
 export async function getProducts(query: {
   search?: string;
   sort?: string;
@@ -40,6 +47,10 @@ export async function getProducts(query: {
   return products;
 }
 
+/**
+ * один товар по id или null
+ * @param id {string}
+ */
 export async function getProductById(id: string) {
   const products = await readProducts();
   return products.find((p) => p.id === id) ?? null;

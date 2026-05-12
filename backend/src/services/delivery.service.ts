@@ -7,6 +7,7 @@ import { getCartByUserId, clearCart } from "./cart.service";
 
 const ordersPath = path.resolve(__dirname, "../data/orders.json");
 
+/** заказы из файла или [] если ещё не создавали */
 async function readOrders(): Promise<Order[]> {
   try {
     const data = await fs.readFile(ordersPath, "utf-8");
@@ -16,6 +17,7 @@ async function readOrders(): Promise<Order[]> {
   }
 }
 
+/** перезапись orders.json целиком */
 async function writeOrders(orders: Order[]): Promise<void> {
   await fs.writeFile(ordersPath, JSON.stringify(orders, null, 2));
 }

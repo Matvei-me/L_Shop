@@ -4,6 +4,9 @@ import { AuthRequest } from "../types/express.d";
 
 const COOKIE_NAME = "sessionToken";
 
+/**
+ * ставит req.userId если cookie sessionToken валидный jwt
+ */
 export function authMiddleware(req: AuthRequest, res: Response, next: NextFunction) {
   const token = req.cookies?.[COOKIE_NAME];
 

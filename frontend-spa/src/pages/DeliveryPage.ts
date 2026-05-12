@@ -15,7 +15,7 @@ export function renderDeliveryPage(container: HTMLElement) {
           <option value="cash">Наличные</option>
           <option value="online">Онлайн</option>
         </select></label>
-        <button type="submit">Оформить</button>
+        <button type="submit" class="btn btn--primary">Оформить</button>
       </form>
       <div id="delivery-message"></div>
     </div>

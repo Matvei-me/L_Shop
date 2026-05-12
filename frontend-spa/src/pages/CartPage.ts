@@ -34,7 +34,7 @@ export async function renderCartPage(container: HTMLElement): Promise<void> {
           <thead><tr><th>Товар</th><th>Цена</th><th>Кол-во / Действия</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
-        <button type="button" id="btn-to-delivery">Оформить доставку</button>
+        <button type="button" class="btn btn--primary" id="btn-to-delivery">Оформить доставку</button>
       `}
     </div>
   `;

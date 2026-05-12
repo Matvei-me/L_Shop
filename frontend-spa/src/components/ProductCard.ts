@@ -1,6 +1,8 @@
 import type { Product } from "../types";
 import { currentUser } from "../state";
+import { escapeHtml } from "../utils/html";
 
+/** карточка товара на главной (data-title / data-price по ТЗ) */
 export function renderProductCard(product: Product): string {
   const canAdd = currentUser && product.available;
   return `
@@ -13,15 +15,9 @@ export function renderProductCard(product: Product): string {
       ${canAdd ? `
         <div class="add-to-cart">
           <input type="number" min="1" value="1" data-quantity-input="${product.id}" />
-          <button type="button" data-add-cart="${product.id}">В корзину</button>
+          <button type="button" class="btn btn--primary" data-add-cart="${product.id}">В корзину</button>
         </div>
       ` : ""}
     </div>
   `;
-}
-
-function escapeHtml(s: string): string {
-  const div = document.createElement("div");
-  div.textContent = s;
-  return div.innerHTML;
 }

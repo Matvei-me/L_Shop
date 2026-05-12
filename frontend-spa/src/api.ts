@@ -2,7 +2,10 @@ import type { ApiResponse, CartItem, Order, Product, UserProfile } from "./types
 
 const API = "/api";
 
-// куки с бэка подхватываются только с credentials: "include"
+/**
+ * обёртка над fetch: всегда шлём credentials чтобы HttpOnly cookie доходила до API
+ * @template T тип поля data в ответе
+ */
 async function fetchApi<T>(path: string, opts: RequestInit = {}): Promise<ApiResponse<T>> {
   const res = await fetch(API + path, {
     ...opts,

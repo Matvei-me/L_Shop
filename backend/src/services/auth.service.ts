@@ -7,11 +7,19 @@ import { RegisterDto, LoginDto } from "../types/auth.types";
 
 const usersPath = path.resolve(__dirname, "../data/users.json");
 
+/**
+ * читает users.json с диска
+ * @returns {Promise<User[]>}
+ */
 async function readUsers(): Promise<User[]> {
   const data = await fs.readFile(usersPath, "utf-8");
   return JSON.parse(data) as User[];
 }
 
+/**
+ * перезаписывает users.json (осторожно — без блокировок на параллельные запросы)
+ * @param users {User[]} полный массив пользователей
+ */
 async function writeUsers(users: User[]): Promise<void> {
   await fs.writeFile(usersPath, JSON.stringify(users, null, 2));
 }
