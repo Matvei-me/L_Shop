@@ -1,6 +1,6 @@
 # L_Shop
 
-Учебный проект (лаба): прототип интернет-магазина на `Express + TypeScript` с простым SPA на клиенте.
+Прототип интернет-магазина: backend на `Express + TypeScript`, клиент — SPA на TypeScript (без SSR).
 
 ## Что в проекте
 
@@ -23,11 +23,15 @@
 - `frontend/` — собранная статика, которую раздает backend
 - `backend/openapi.json` — описание API для Swagger UI
 
-### Swagger
+### Swagger UI
 
-После запуска backend открой **http://localhost:3000/api-docs** — там все эндпоинты и схемы.
+С запущенным backend: **http://localhost:3000/api-docs** — спецификация OpenAPI 3, все методы и схемы тел запросов.
 
-Про ветку `docs` и сдачу доки по лабе см. файл **[LAB_DOCS.md](LAB_DOCS.md)**.
+Исходник описания: **`backend/openapi.json`**. При изменении контрактов API нужно обновлять и код, и этот файл.
+
+### Ветка `docs` и pull request
+
+Документация и сопутствующие правки коммитятся в ветку **`docs`**. Открывается **pull request из `docs` в `main`/`master`** для ревью изменений; слияние по необходимости выполняет ответственный за репозиторий.
 
 ## Переменные окружения
 
@@ -138,9 +142,9 @@ cp -r dist/* ../frontend/
 - `carts.json`
 - `orders.json`
 
-## Data-атрибуты для проверки
+## Data-атрибуты во фронте
 
-Во фронте расставлены:
+На разметке используются:
 
 - `data-title` / `data-price` — карточка товара на главной
 - `data-title="basket"` / `data-price="basket"` — товар в корзине

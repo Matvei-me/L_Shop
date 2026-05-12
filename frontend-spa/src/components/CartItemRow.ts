@@ -1,7 +1,6 @@
 import type { Product } from "../types";
 import { escapeHtml } from "../utils/html";
 
-/** строка таблицы корзины (data-title/data-price=\"basket\") */
 export function renderCartItemRow(
   product: Product,
   quantity: number

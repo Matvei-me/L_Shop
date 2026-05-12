@@ -2,7 +2,6 @@ import type { Product } from "../types";
 import { currentUser } from "../state";
 import { escapeHtml } from "../utils/html";
 
-/** карточка товара на главной (data-title / data-price по ТЗ) */
 export function renderProductCard(product: Product): string {
   const canAdd = currentUser && product.available;
   return `

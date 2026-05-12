@@ -1,7 +1,6 @@
 /**
- * экранирование для вставки текста в HTML (чтобы при странных символах не ломалась разметка)
- * @param {string} value сырая строка
- * @returns {string} строка для безопасной подстановки в innerHTML
+ * @param value произвольная строка
+ * @returns экранированная строка для вставки в HTML
  */
 export function escapeHtml(value: string): string {
   const div = document.createElement("div");
@@ -10,9 +9,8 @@ export function escapeHtml(value: string): string {
 }
 
 /**
- * то же для атрибутов value="" в шаблонных строках
- * @param {string} value сырая строка
- * @returns {string}
+ * @param value значение для подстановки в HTML-атрибут
+ * @returns экранированная строка
  */
 export function escapeAttr(value: string): string {
   const div = document.createElement("div");

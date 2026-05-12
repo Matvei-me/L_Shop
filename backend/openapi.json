@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "L_Shop API",
-    "description": "Лабораторный API магазина. Авторизация — cookie `sessionToken` (HttpOnly, JWT). Защищённые ручки требуют залогиниться через POST /api/auth/register или /api/auth/login.",
+    "description": "REST API магазина L_Shop. Авторизация: cookie `sessionToken` (HttpOnly, JWT). Защищённые методы — после POST `/api/auth/register` или `/api/auth/login`.",
     "version": "1.0.0"
   },
   "servers": [{ "url": "http://localhost:3000", "description": "локально" }],

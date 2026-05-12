@@ -1,6 +1,5 @@
 export type Route = "" | "cart" | "delivery" | "auth";
 
-/** текущий «экран» из hash (#/cart и т.д.) */
 export function getRoute(): Route {
   const hash = window.location.hash.slice(1) || "/";
   const pathname = hash.split("?")[0] || "/";
@@ -12,7 +11,6 @@ export function getRoute(): Route {
   return "";
 }
 
-/** меняем hash и страница перерисуется через hashchange */
 export function navigateTo(route: Route): void {
   if (route === "") {
     window.location.hash = "/";
@@ -21,7 +19,6 @@ export function navigateTo(route: Route): void {
   }
 }
 
-/** один раз вызываем onRoute и вешаемся на hashchange */
 export function initRouter(onRoute: (route: Route) => void): void {
   onRoute(getRoute());
   window.addEventListener("hashchange", () => onRoute(getRoute()));

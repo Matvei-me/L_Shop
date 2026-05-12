@@ -1,6 +1,5 @@
 import type { UserProfile, CartItem, Product } from "./types";
 
-/** глобальное состояние для простого SPA — без стора */
 export let currentUser: UserProfile | null = null;
 export let cartItems: CartItem[] = [];
 export let productsCache: Product[] = [];

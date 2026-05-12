@@ -3,7 +3,6 @@ import { setProductsCache } from "../state";
 import { renderProductCard } from "../components/ProductCard";
 import { escapeAttr } from "../utils/html";
 
-/** главная: фильтры + сетка товаров */
 export async function renderMainPage(container: HTMLElement): Promise<void> {
   const search = new URLSearchParams(window.location.hash.slice(1).split("?")[1] || "").get("search") ?? "";
   const sort = new URLSearchParams(window.location.hash.slice(1).split("?")[1] || "").get("sort") ?? "";
@@ -72,7 +71,6 @@ function bindFilters(container: HTMLElement): void {
   });
 }
 
-/** клик по «В корзину» — дергаем api и обновляем счётчик корзины в шапке если надо */
 function bindAddToCart(container: HTMLElement): void {
   container.querySelectorAll("[data-add-cart]").forEach((btn) => {
     const productId = (btn as HTMLElement).getAttribute("data-add-cart");

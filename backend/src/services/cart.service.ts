@@ -5,7 +5,6 @@ import { getProductById } from "./product.service";
 
 const cartsPath = path.resolve(__dirname, "../data/carts.json");
 
-/** читает carts.json; если файла нет — пустой массив */
 async function readCarts(): Promise<Cart[]> {
   try {
     const data = await fs.readFile(cartsPath, "utf-8");
@@ -15,7 +14,6 @@ async function readCarts(): Promise<Cart[]> {
   }
 }
 
-/** сохраняет все корзины обратно в файл */
 async function writeCarts(carts: Cart[]): Promise<void> {
   await fs.writeFile(cartsPath, JSON.stringify(carts, null, 2));
 }

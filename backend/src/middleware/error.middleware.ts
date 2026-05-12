@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 
-/** последний middleware — ловит ошибки из контроллеров и отдаёт json с message */
 export default function errorMiddleware(
   err: Error,
   _req: Request,
